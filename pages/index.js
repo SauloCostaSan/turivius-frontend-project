@@ -1,9 +1,27 @@
-import Head from 'next/head'
-import Card from '../components/card/Card'
-import { Container, Header, Content, Grid, Row, Col } from 'rsuite';
-import TuriviusHeader from '../components/layout/Header';
+import Head from "next/head";
+import Card from "../components/card/Card";
+import { Container, Header, Content, Grid, Row, Col } from "rsuite";
+import TuriviusHeader from "../components/layout/Header";
 
 export default function Home(props) {
+  const { cards, entities } = props;
+  // const data = cards.map((card) => {
+  //   let mapEntity = entities.find((entity) => entity.id === card.entity);
+  //   return {
+  //     ...card,
+  //     name: mapEntity.name,
+  //     initials: mapEntity.initials,
+  //   };
+  // });
+  const data = (cards, entities) => {
+    cards.map((card) => ({
+      ...entities.find((entity) => entity.id === card.entity),
+      ...card,
+    }));
+  };
+
+  const newData = data(props.cards, props.entities);
+
   return (
     <div>
       <Head>
@@ -20,20 +38,36 @@ export default function Home(props) {
         <Content>
           <Grid fluid>
             <Row>
-              {props.cards.map(card => <Col key={card.id} sm={24}>
-                <Card {...card} />
-              </Col>)}
+              {cards.map((card) => (
+                <Col key={card.title} sm={24}>
+                  <Card {...card} />
+                  {/* <Card {...card} /> */}
+                </Col>
+              ))}
             </Row>
           </Grid>
         </Content>
       </Container>
     </div>
-  )
+  );
 }
 
 Home.getInitialProps = async () => {
-  const cards = await (await fetch('http://localhost:3000/api/cards')).json()
+  const cards = await (await fetch("http://localhost:3000/api/cards")).json();
+  const entities = await (
+    await fetch("http://localhost:3000/api/cards")
+  ).json();
+
+  // const data = cardsApi.map((card) => {
+  //   let mapEntity = entitiesApi.find((entity) => entity.id === card.entity);
+  //   return {
+  //     ...card,
+  //     name: mapEntity.name,
+  //     initials: mapEntity.initials,
+  //   };
+  // });
   return {
-    cards
-  }
-}
+    cards,
+    entities,
+  };
+};
