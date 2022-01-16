@@ -20,20 +20,18 @@
   font-weight: normal;
   color: #f37e00;
 }
-.rs-btn {
+.footer-icon svg {
   background: none;
-  padding: 0;
+  width: 56px;
+  height: 56px;
+  padding: 0 0 0 16px;
 }
 .rs-btn:hover,
 .rs-btn:active,
 .rs-btn:focus {
   background: none;
 }
-.rs-btn svg {
-  width: 56px;
-  height: 56px;
-  padding-left: 16px;
-}
+
 .title-card {
   font-size: 16px;
   font-weight: 700;

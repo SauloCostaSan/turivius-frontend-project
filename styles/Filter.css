@@ -1,0 +1,60 @@
+.call-to-action {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 64px 0 40px 0;
+}
+.filter-title {
+  font-size: 31.5px;
+  font-weight: bold;
+  line-height: 36.9px;
+  color: #123b71;
+  padding-bottom: 16px;
+  text-transform: uppercase;
+}
+.filter-description {
+  font-size: 21px;
+  font-weight: normal;
+  line-height: 24px;
+  color: #3a3a3a;
+}
+
+.filter-form {
+  padding-bottom: 48px;
+}
+.row-1 {
+  padding-bottom: 24px;
+}
+
+.form-label {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 25px;
+  color: #3a3a3a;
+}
+.form-input .rs-input {
+  width: 15rem;
+  padding: 8px 16px;
+}
+.date-input .rs-picker-default .rs-picker-toggle {
+  width: 15rem;
+  padding: 8px 16px;
+}
+
+.search-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  background-color: #f37e00;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 40px;
+  color: white;
+}
+.search-btn svg {
+  width: 32px;
+  color: white;
+  padding-right: 16px;
+}

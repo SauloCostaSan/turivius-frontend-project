@@ -1,7 +1,8 @@
 import Head from "next/head";
 import Card from "../components/card/Card";
-import { Container, Header, Content, Grid, Row, Col } from "rsuite";
+import { Container, Header, Content, Grid, Row, Col, Affix } from "rsuite";
 import TuriviusHeader from "../components/layout/Header";
+import FilterCard from "../components/filter/FilterCard";
 
 export default function Home(props) {
   const { cards, entities } = props;
@@ -31,10 +32,15 @@ export default function Home(props) {
       </Head>
 
       <Header>
+        {/* <Affix> */}
         <TuriviusHeader />
+        {/* </Affix> */}
       </Header>
 
       <Container>
+        <Content>
+          <FilterCard />
+        </Content>
         <Content>
           <Grid fluid>
             <Row>

@@ -60,7 +60,10 @@ const Card = (props) => {
               <div className="links">
                 <Link target={"_blank"} href={url}>
                   <a target="_blank">
-                    <FontAwesomeIcon icon={faExternalLinkAlt} />
+                    <FontAwesomeIcon
+                      icon={faExternalLinkAlt}
+                      className="footer-icon"
+                    />
                     <span>Abrir Inteiro Teor</span>
                   </a>
                 </Link>
@@ -68,7 +71,7 @@ const Card = (props) => {
               <div className="links">
                 <Link target={"_blank"} href={url}>
                   <a target="_blank">
-                    <FontAwesomeIcon icon={faCopy} />
+                    <FontAwesomeIcon icon={faCopy} className="footer-icon" />
                     <span>Ementa para citação</span>
                   </a>
                 </Link>

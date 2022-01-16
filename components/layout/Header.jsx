@@ -1,5 +1,5 @@
 import React from "react";
-import { FlexboxGrid } from "rsuite";
+import { FlexboxGrid, Affix } from "rsuite";
 import "../../styles/Header.css";
 
 function TuriviusHeader() {
