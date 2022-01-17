@@ -1,9 +1,20 @@
-import Head from 'next/head'
-import Card from '../components/card/Card'
-import { Container, Header, Content, Grid, Row, Col } from 'rsuite';
-import TuriviusHeader from '../components/layout/Header';
+import Head from "next/head";
+import Card from "../components/card/Card";
+import { Container, Header, Content, Grid, Row, Col, Affix } from "rsuite";
+import TuriviusHeader from "../components/layout/Header";
+import FilterCard from "../components/filter/FilterCard";
 
 export default function Home(props) {
+  const { cards, entities } = props;
+
+  const data = cards.map((card) => {
+    let [court] = entities.filter((item) => item.id == card.entity);
+    return {
+      ...card,
+      entity: court.name,
+    };
+  });
+
   return (
     <div>
       <Head>
@@ -18,22 +29,32 @@ export default function Home(props) {
 
       <Container>
         <Content>
+          <FilterCard />
+        </Content>
+        <Content>
           <Grid fluid>
             <Row>
-              {props.cards.map(card => <Col key={card.id} sm={24}>
-                <Card {...card} />
-              </Col>)}
+              {data.map((card, index) => (
+                <Col key={index} sm={24}>
+                  <Card {...card} key={index} />
+                </Col>
+              ))}
             </Row>
           </Grid>
         </Content>
       </Container>
     </div>
-  )
+  );
 }
 
 Home.getInitialProps = async () => {
-  const cards = await (await fetch('http://localhost:3000/api/cards')).json()
+  const cards = await (await fetch("http://localhost:3000/api/cards")).json();
+  const entities = await (
+    await fetch("http://localhost:3000/api/entities")
+  ).json();
+
   return {
-    cards
-  }
-}
+    cards,
+    entities,
+  };
+};

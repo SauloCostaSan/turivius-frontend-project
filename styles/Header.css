@@ -1,9 +1,8 @@
 .rs-header {
   position: sticky;
   top: 0px;
-  z-index: 1;
+  z-index: 999;
 }
-
 .turivius-header {
   width: 100%;
   background-color: #123b71;
