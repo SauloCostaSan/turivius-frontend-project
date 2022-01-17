@@ -1,0 +1,23 @@
+.feedback {
+  display: flex;
+  align-items: center;
+}
+
+.feedback-text {
+  font-size: 14px;
+  font-weight: normal;
+  color: #f37e00;
+}
+
+.positive-icon.rs-btn {
+  margin: 0 16px 0 32px;
+}
+.positive-icon.rs-btn svg {
+  background: none;
+  width: 40px;
+}
+
+.negative-icon.rs-btn svg {
+  background-color: none;
+  width: 40px;
+}

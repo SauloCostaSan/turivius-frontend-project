@@ -9,20 +9,14 @@ import {
   faTimesCircle,
   faCheckCircle,
 } from "@fortawesome/free-solid-svg-icons";
+import { CopyToClipboard } from "react-copy-to-clipboard";
+import Feedback from "../feedback/Feedback";
+
 const Card = (props) => {
   const { nome, data_pub, data_jul, url, entity, content } = props;
-  const [toggle, setToggle] = useState(false);
+  const [copied, setCopied] = useState(false);
 
-  const positiveFeedback = (event) => {
-    setToggle(!toggle);
-    // event.preventDefault();
-    event.target.style.color = "#15c16b";
-  };
-  const negativeFeedback = (event) => {
-    setToggle(!toggle);
-    // event.preventDefault();
-    event.target.style.color = "#e61e25";
-  };
+  const ementa = content.filter((ementa) => ementa.title == "Ementa");
 
   return (
     <FlexboxGrid justify="center">
@@ -30,24 +24,16 @@ const Card = (props) => {
         <Panel className="turivius-card" shaded>
           <div className="card-header">
             <h1 className="title-card">{nome}</h1>
-            <div className="feedback">
-              <p className="feedback-text">
-                Qual a sua opinião sobre essa decisão?
-              </p>
-              <Button onClick={(event) => positiveFeedback(event)}>
-                <FontAwesomeIcon icon={faCheckCircle} />
-              </Button>
-              <Button onClick={(event) => negativeFeedback(event)}>
-                <FontAwesomeIcon icon={faTimesCircle} />
-              </Button>
-            </div>
+            <Feedback />
           </div>
           <List bordered>
             {content.map((item, index) => (
-              <List.Item key={item.id} index={index}>
-                <b className="content-title">{item.title}</b>
-                <p className="content-text">{item.content}</p>
-              </List.Item>
+              <>
+                <List.Item key={index}>
+                  <b className="content-title">{item.title}</b>
+                  <p className="content-text">{item.content}</p>
+                </List.Item>
+              </>
             ))}
           </List>
           <div>
@@ -69,12 +55,22 @@ const Card = (props) => {
                 </Link>
               </div>
               <div className="links">
-                <Link target={"_blank"} href={url}>
-                  <a target="_blank">
-                    <FontAwesomeIcon icon={faCopy} className="footer-icon" />
-                    <span>Ementa para citação</span>
-                  </a>
-                </Link>
+                {ementa.map((item, index) => (
+                  <CopyToClipboard
+                    key={index}
+                    className="btn-copy"
+                    text={item.content}
+                    onCopy={() => setCopied({ copied: true })}
+                  >
+                    <button>
+                      <FontAwesomeIcon icon={faCopy} className="footer-icon" />
+                      <span>Copiar a ementa para citação</span>
+                    </button>
+                  </CopyToClipboard>
+                ))}
+                {copied ? (
+                  <span className="copy-message">A ementa foi copiada</span>
+                ) : null}
               </div>
             </div>
           </div>

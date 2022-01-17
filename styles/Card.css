@@ -11,37 +11,12 @@
   align-items: center;
   padding-bottom: 8px;
 }
-.feedback {
-  display: flex;
-  align-items: center;
-}
-.feedback-text {
-  font-size: 14px;
-  font-weight: normal;
-  color: #f37e00;
-}
-.footer-icon svg {
-  background: none;
-  width: 56px;
-  height: 56px;
-  padding: 0 0 0 16px;
-}
-.rs-btn:hover,
-.rs-btn:active,
-.rs-btn:focus {
-  background: none;
-}
-
 .title-card {
   font-size: 16px;
   font-weight: 700;
   color: #123b71;
   line-height: 18px;
   /* padding-bottom: 16px; */
-}
-
-.rs-panel-body {
-  padding: 24px;
 }
 
 .content-title {
@@ -91,4 +66,37 @@
   font-size: 14px;
   font-weight: bold;
   color: #f37e00;
+}
+.footer-icon svg {
+  background: none;
+  width: 56px;
+  height: 56px;
+  padding: 0 0 0 16px;
+}
+.btn-copy {
+  background: none;
+}
+.links .copy-message {
+  font-size: 14px;
+  font-weight: normal;
+  background: #15c16b;
+  border-radius: 8px;
+  padding: 4px 16px;
+  color: white;
+  margin-left: 8px;
+}
+
+/* reseteando css padrão do react suite */
+.rs-btn {
+  background: none;
+  padding: 0;
+}
+.rs-btn:disabled,
+.rs-btn:hover,
+.rs-btn:active,
+.rs-btn:focus {
+  background: none;
+}
+.rs-panel-body {
+  padding: 24px;
 }
