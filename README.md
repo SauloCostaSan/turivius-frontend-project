@@ -4,7 +4,7 @@
 
 ## Wireframe utilizado para o desafio
 
-[https://www.figma.com/file/Wx6kFeT4oZzh0kzyaFH2nn/Turivius?node-id=0%3A1]
+https://www.figma.com/file/Wx6kFeT4oZzh0kzyaFH2nn/Turivius?node-id=0%3A1
 
 ## Informações sobre o desafio estabelecido
 
