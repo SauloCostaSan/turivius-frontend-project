@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import Link from "next/link";
-import { Button, FlexboxGrid, List, Panel } from "rsuite";
+import { Button } from "rsuite";
 import "../../styles/Feedback.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -12,31 +11,26 @@ const Feedback = () => {
   const [disablePositive, setDisablePositive] = useState(false);
   const [disableNegative, setDisableNegative] = useState(false);
 
-  const positiveFeedback = (event) => {
-    setDisablePositive(false);
-    setDisableNegative(true);
-    event.target.style.color = "#15c16b";
-  };
-  const negativeFeedback = (event) => {
+  const positiveFeedback = () => {
     setDisableNegative(false);
     setDisablePositive(true);
-    // event.preventDefault();
-    event.target.style.color = "#e61e25";
+  };
+  const negativeFeedback = () => {
+    setDisablePositive(false);
+    setDisableNegative(true);
   };
 
   return (
     <div className="feedback">
       <p className="feedback-text">Qual a sua opinião sobre essa decisão?</p>
       <Button
-        disabled={disablePositive}
-        className="positive-icon"
+        className={disablePositive ? "positive-icon active" : "positive-icon "}
         onClick={(event) => positiveFeedback(event)}
       >
         <FontAwesomeIcon icon={faCheckCircle} />
       </Button>
       <Button
-        disabled={disableNegative}
-        className="negative-icon"
+        className={disableNegative ? " negative-icon active" : "negative-icon"}
         onClick={(event) => negativeFeedback(event)}
       >
         <FontAwesomeIcon icon={faTimesCircle} />

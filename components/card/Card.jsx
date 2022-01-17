@@ -1,21 +1,15 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import { Button, FlexboxGrid, List, Panel } from "rsuite";
+import { FlexboxGrid, List, Panel } from "rsuite";
 import "../../styles/Card.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faExternalLinkAlt,
-  faCopy,
-  faTimesCircle,
-  faCheckCircle,
-} from "@fortawesome/free-solid-svg-icons";
+import { faExternalLinkAlt, faCopy } from "@fortawesome/free-solid-svg-icons";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import Feedback from "../feedback/Feedback";
 
 const Card = (props) => {
   const { nome, data_pub, data_jul, url, entity, content } = props;
   const [copied, setCopied] = useState(false);
-
   const ementa = content.filter((ementa) => ementa.title == "Ementa");
 
   return (
@@ -28,12 +22,10 @@ const Card = (props) => {
           </div>
           <List bordered>
             {content.map((item, index) => (
-              <>
-                <List.Item key={index}>
-                  <b className="content-title">{item.title}</b>
-                  <p className="content-text">{item.content}</p>
-                </List.Item>
-              </>
+              <List.Item key={index}>
+                <b className="content-title">{item.title}</b>
+                <p className="content-text">{item.content}</p>
+              </List.Item>
             ))}
           </List>
           <div>

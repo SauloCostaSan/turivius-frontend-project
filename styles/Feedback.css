@@ -9,15 +9,21 @@
   color: #f37e00;
 }
 
-.positive-icon.rs-btn {
-  margin: 0 16px 0 32px;
-}
 .positive-icon.rs-btn svg {
   background: none;
   width: 40px;
+}
+.positive-icon.rs-btn {
+  margin: 0 16px 0 32px;
+}
+.positive-icon.active svg {
+  color: #15c16b;
 }
 
 .negative-icon.rs-btn svg {
   background-color: none;
   width: 40px;
+}
+.negative-icon.active svg {
+  color: #e61e25;
 }
